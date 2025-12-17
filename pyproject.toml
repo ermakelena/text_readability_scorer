@@ -1,0 +1,27 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+analyze-complexity = "text_scorer.main:main"
+
+[project]
+name = "text-scorer"
+version = "0.1.0"
+description = "Анализатор читаемости текста на основе лингвистических метрик."
+authors = [
+    {name = "elena",email = "eiermal@edu.hse.ru"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+]
+
+[dependency-groups]
+dev = [
+    "black (>=23.1.0,<24.0.0)",
+    "flake8 (>=6.0.0,<7.0.0)",
+    "mypy (>=1.5.0,<2.0.0)"
+]
+
