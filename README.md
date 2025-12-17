@@ -50,15 +50,15 @@
 ### 1. Poetry
 
 Склонируйте репозиторий:
-> git clone https://github.com/ermakelena/TextReadabilityScorer
+> git clone https://github.com/ermakelena/text_readability_scorer.git
 > 
-> cd text_scorer
+> cd text_readability_scorer
 
 Установите зависимости через Poetry:
 > poetry install
 
 Запустите программу
->poetry run readability-scorer
+>poetry run analyze-complexity
 
 ### 2. Напрямую 
 
