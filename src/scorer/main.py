@@ -1,7 +1,7 @@
-from analyzer import TextAnalyzer
-from document_reader import DocumentReader
-from report import generate_report
-from simplifier import suggest_improvements, save_recommendations
+from src.scorer.analyzer import TextAnalyzer
+from src.scorer.document_reader import DocumentReader
+from src.scorer.report import generate_report
+from src.scorer.simplifier import suggest_improvements, save_recommendations
 import os
 
 # Определяем базовую директорию проекта

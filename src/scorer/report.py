@@ -1,7 +1,7 @@
 import json
 from typing import Dict
 from datetime import datetime
-from analyzer import TextAnalyzer
+from src.scorer.analyzer import TextAnalyzer
 
 
 def generate_report(analysis_results: Dict[str, float], output_format: str = "text") -> str:

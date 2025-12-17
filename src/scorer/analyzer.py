@@ -1,6 +1,6 @@
 from typing import Dict
-from document_reader import DocumentReader
-from metrics import (
+from src.scorer.document_reader import DocumentReader
+from src.scorer.metrics import (
     calculate_flesch_reading_ease,
     calculate_flesch_kincaid_grade_level,
     calculate_gunning_fog_index,
