@@ -2,6 +2,7 @@ import json
 from typing import Dict
 from datetime import datetime
 from src.scorer.analyzer import TextAnalyzer
+from src.scorer.metrics import select_metrics, show_metric_selection_menu
 
 
 def generate_report(analysis_results: Dict[str, float], output_format: str = "text") -> str:
@@ -83,67 +84,3 @@ def _interpret_gunning_fog(score: float) -> str:
         return "Сложно (академические тексты)"
     else:
         return "Очень сложно (специализированная литература)"
-
-
-def select_metrics(analysis_results: Dict[str, float], metric_choice: str = "all") -> Dict[str, float]:
-    """
-    Возвращает выбранные пользователем метрики или их среднее.
-
-    :param analysis_results: словарь со всеми метриками
-    :param metric_choice: выбор метрики ("flesch", "kincaid", "gunning", "average", "all")
-    :return: словарь с выбранными метриками
-    """
-    choices = {
-        "flesch": {"flesch_reading_ease": analysis_results["flesch_reading_ease"]},
-        "kincaid": {"flesch_kincaid_grade_level": analysis_results["flesch_kincaid_grade_level"]},
-        "gunning": {"gunning_fog_index": analysis_results["gunning_fog_index"]},
-        "average": {
-            "average_readability": (
-                                           analysis_results["flesch_reading_ease"] +
-                                           (100 - analysis_results[
-                                               "flesch_kincaid_grade_level"] * 6.67) +  # Нормализация Kincaid
-                                           (100 - analysis_results["gunning_fog_index"] * 8.33)
-                                   # Нормализация Gunning Fog
-                                   ) / 3
-        },
-        "all": analysis_results
-    }
-
-    return choices.get(metric_choice, analysis_results)
-
-
-def show_metric_selection_menu() -> str:
-    """
-    Показывает меню выбора метрик.
-
-    :return: выбранная опция
-    """
-    print("\n" + "=" * 50)
-    print("Выбор метрик для отображения:")
-    print("=" * 50)
-    print("1. Flesch Reading Ease (легкость чтения)")
-    print("2. Flesch-Kincaid Grade Level (уровень образования)")
-    print("3. Gunning Fog Index (сложность текста)")
-    print("4. Средний показатель читаемости")
-    print("5. Все метрики (полный отчет)")
-    print("0. Выход")
-    print("=" * 50)
-
-    while True:
-        try:
-            choice = input("Выберите опцию (0-5): ").strip()
-            options = {
-                "1": "flesch",
-                "2": "kincaid",
-                "3": "gunning",
-                "4": "average",
-                "5": "all",
-                "0": "exit"
-            }
-
-            if choice in options:
-                return options[choice]
-            else:
-                print("Пожалуйста, введите число от 0 до 5")
-        except KeyboardInterrupt:
-            return "exit"
