@@ -1,5 +1,7 @@
+# Импорты не отсортированы
+
 import re
-from typing import Tuple, Dict
+from typing import Tuple, Dict  # Такой способ аннотации типа устарел.
 
 
 def count_words(text: str) -> int:
@@ -7,7 +9,7 @@ def count_words(text: str) -> int:
     words = text.split()
     return len(words)
 
-
+# Нет аннотации ни входных параметров, ни ретерна
 def count_sentences(text: str) -> int:
     """Подсчет количества предложений."""
     sentences = re.findall(r'[.?!]+', text)
@@ -121,3 +123,5 @@ def show_metric_selection_menu() -> str:
                 print("Пожалуйста, введите число от 0 до 5")
         except KeyboardInterrupt:
             return "exit"
+
+# Нет пустой строки

@@ -1,10 +1,10 @@
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core"]  # Вы забыли указать версию poetry
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "text_readability_scorer"
-version = "0.1.0"
+version = "0.1.0"  # Начинайте с 1.0.0
 description = "Анализатор читаемости текста на основе лингвистических метрик."
 authors = ["elena <eiermal@edu.hse.ru>"]
 license = "MIT"
@@ -13,7 +13,7 @@ readme = "README.md"
 packages = [
     { include = "scorer", from = "src" }
 ]
-
+# Вы хотите собирать пакет? Тогда в `scorer` должен быть `__init__.py`, чтобы `scorer` стал python-модулем
 
 [tool.poetry.dependencies]
 python = ">=3.9"
@@ -21,7 +21,7 @@ nltk = "^3.8"
 textstat = "^0.7"
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.1"
+black = "^23.1"  # Вы указываете эти инструменты в зависимостях, но не настраиваете их и, видимо, не используете.
 flake8 = "^6.0"
 mypy = "^1.5"
 
