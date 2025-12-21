@@ -15,8 +15,8 @@ packages = [
 ]
 # Вы хотите собирать пакет? Тогда в `scorer` должен быть `__init__.py`, чтобы `scorer` стал python-модулем
 
-[tool.poetry.dependencies]
-python = ">=3.9"
+[tool.poetry.dependencies]  # Версии нужно строго фиксировать. Например "==3.9.*"
+python = ">=3.9" # Для Poetry 2 версию Python нужно указывать в `tool.poetry.requires-python`. Так, как у вас, тоже будет работать, но это оформление в любой момент может перестать поддержтиваться.
 nltk = "^3.8"
 textstat = "^0.7"
 
