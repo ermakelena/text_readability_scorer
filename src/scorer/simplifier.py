@@ -1,4 +1,6 @@
-from typing import Dict
+# Импорты не отсортированы
+
+from typing import Dict  # Такой способ аннотации типа устарел.
 import json
 from datetime import datetime
 
@@ -98,3 +100,5 @@ def save_recommendations(results: Dict[str, float], improvements: list) -> None:
 
     print(f"\n✓ Рекомендации сохранены в файл: {filename}")
     print("-" * 50)
+
+# Нет пустой строки

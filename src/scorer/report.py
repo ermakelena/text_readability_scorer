@@ -1,7 +1,9 @@
+# Импорты не отсортированы
+
 import json
-from typing import Dict
+from typing import Dict  # Такой способ аннотации типа устарел.
 from datetime import datetime
-from src.scorer.analyzer import TextAnalyzer
+from src.scorer.analyzer import TextAnalyzer  # Неправильные импорты.
 from src.scorer.metrics import select_metrics, show_metric_selection_menu
 
 
@@ -48,7 +50,7 @@ def generate_report(analysis_results: Dict[str, float], output_format: str = "te
 
     return report_text
 
-
+# Нет аннотации ни входных параметров, ни ретерна
 def _interpret_flesch(score: float) -> str:
     """Интерпретация результата Flesch Reading Ease."""
     if score >= 90:

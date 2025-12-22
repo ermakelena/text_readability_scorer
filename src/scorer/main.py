@@ -1,4 +1,6 @@
-from src.scorer.analyzer import TextAnalyzer
+# Импорты не отсортированы
+
+from src.scorer.analyzer import TextAnalyzer  # Неправильные импорты.
 from src.scorer.document_reader import DocumentReader
 from src.scorer.report import generate_report
 from src.scorer.simplifier import suggest_improvements, save_recommendations
@@ -6,10 +8,11 @@ import os
 
 # Определяем базовую директорию проекта
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-# BASE_DIR теперь = text_scorer
+# BASE_DIR теперь = text_scorer  # Для кого этот комментарий?
 TEXTS_DIR = os.path.join(BASE_DIR, "texts")
 
 
+# Нет аннотации ни входных параметров, ни ретерна
 def get_recommendations_with_choice(results):
     """
     Получает рекомендации с выбором формата вывода
@@ -174,3 +177,5 @@ if __name__ == "__main__":
         print("\nИли используйте опцию 'Свой файл' для указания полного пути.")
 
     main()
+
+# Нет пустой строки

@@ -1,5 +1,6 @@
-from typing import List
+from typing import List  # Такой способ аннотации типа устарел. Вместо него используйте `list[...]`
 
+# Нет аннотации ретерна
 class DocumentReader:
     def __init__(self, file_path: str):
         """
@@ -17,3 +18,5 @@ class DocumentReader:
         """
         with open(self.file_path, 'r', encoding='utf-8') as f:
             return f.read()
+
+# Нет пустой строки
